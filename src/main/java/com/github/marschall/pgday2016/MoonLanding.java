@@ -19,9 +19,6 @@ public class MoonLanding {
       System.out.println(landingUtc.withZoneSameInstant(ZoneId.of(zoneId)).format(formatter));
     }
 
-//    for (String zoneId : ZoneId.getAvailableZoneIds()) {
-//      System.out.println(zoneId);
-//    }
   }
 
 }
