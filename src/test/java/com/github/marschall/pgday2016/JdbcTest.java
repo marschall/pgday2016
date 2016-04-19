@@ -1,7 +1,5 @@
 package com.github.marschall.pgday2016;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,14 +19,14 @@ public class JdbcTest extends AbstractPosgresTest {
 
 
   @Test
-  public void preparedStatement() throws SQLException {
+  public void query() throws SQLException {
     try (Connection connection = this.dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT date_column FROM demo_table WHERE time_column = ?")) {
+            PreparedStatement statement = connection.prepareStatement("SELECT date_column FROM demo_table WHERE time_column < ?")) {
       statement.setObject(1, LocalTime.of(12, 5));
       try (ResultSet resultSet = statement.executeQuery()) {
         while (resultSet.next()) {
           LocalDate date = resultSet.getObject(1, LocalDate.class);
-          assertNotNull(date);
+          System.out.println(date);
         }
       }
     }

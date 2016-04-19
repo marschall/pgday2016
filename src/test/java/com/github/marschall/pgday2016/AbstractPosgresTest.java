@@ -8,8 +8,9 @@ import org.springframework.test.context.junit4.rules.SpringClassRule;
 import org.springframework.test.context.junit4.rules.SpringMethodRule;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @Sql("classpath:schema.sql")
+@Sql("classpath:data.sql")
+@Transactional
 @ContextConfiguration(classes = PostgresConfiguration.class)
 public abstract class AbstractPosgresTest {
 
