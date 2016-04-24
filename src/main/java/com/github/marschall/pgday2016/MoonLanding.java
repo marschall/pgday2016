@@ -1,11 +1,10 @@
 package com.github.marschall.pgday2016;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-
 import static java.time.ZoneOffset.UTC;
 
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MoonLanding {
 
