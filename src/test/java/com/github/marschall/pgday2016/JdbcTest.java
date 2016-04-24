@@ -22,7 +22,7 @@ public class JdbcTest extends AbstractJdbcTest {
   public void query() throws SQLException {
     try (Connection connection = this.dataSource.getConnection();
          PreparedStatement statement = connection.prepareStatement(
-                    "SELECT date_column FROM demo_table WHERE time_column < ?")) {
+             "SELECT date_column FROM demo_table WHERE time_column < ?")) {
 
       statement.setObject(1, LocalTime.of(12, 5));
       try (ResultSet resultSet = statement.executeQuery()) {

@@ -2,6 +2,9 @@ package com.github.marschall.pgday2016;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.math.BigInteger;
+import java.time.LocalTime;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -15,8 +18,18 @@ public class JpaTest extends AbstractPosgresTest {
   private EntityManager em;
 
   @Test
-  public void select() {
-    assertNotNull(em);
+  public void find() {
+    DemoTable demoTable = em.find(DemoTable.class, BigInteger.ONE);
+    assertNotNull(demoTable);
+  }
+
+  @Test
+  public void query() {
+    DemoTable demoTable = (DemoTable) em.createQuery(
+            "SELECT d from DemoTable d WHERE d.timeColumn < :time")
+            .setParameter("time", LocalTime.of(12, 5))
+            .getSingleResult();
+    assertNotNull(demoTable);
   }
 
 }
