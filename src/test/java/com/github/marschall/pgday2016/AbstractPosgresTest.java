@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Sql("classpath:schema.sql")
 @Sql("classpath:data.sql")
 @Transactional
-@ContextConfiguration(classes = PostgresConfiguration.class)
 public abstract class AbstractPosgresTest {
 
   @ClassRule

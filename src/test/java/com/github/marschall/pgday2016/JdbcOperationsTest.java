@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 
-public class JdbcOperationsTest extends AbstractPosgresTest {
+public class JdbcOperationsTest extends AbstractJdbcTest {
 
   @Autowired
   private JdbcOperations jdbcOperations;

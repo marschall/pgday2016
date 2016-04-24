@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="pgday-2016">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        
+        <class>com.github.marschall.pgday2016.DemoTable</class>
+        
+        <class>com.github.marschall.threeten.jpa.LocalTimeConverter</class>
+        <class>com.github.marschall.threeten.jpa.LocalDateConverter</class>
+        <class>com.github.marschall.threeten.jpa.LocalDateTimeConverter</class>
+        
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
