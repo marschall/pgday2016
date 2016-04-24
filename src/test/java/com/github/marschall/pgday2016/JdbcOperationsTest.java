@@ -19,7 +19,8 @@ public class JdbcOperationsTest extends AbstractPosgresTest {
   public void query() throws SQLException {
     Class<LocalDate> elementType = LocalDate.class;
     Object[] bindParameters = new Object[]{LocalTime.of(12, 5)};
-    List<LocalDate> dates = this.jdbcOperations.queryForList("SELECT date_column FROM demo_table WHERE time_column < ?",
+    List<LocalDate> dates = this.jdbcOperations.queryForList(
+            "SELECT date_column FROM demo_table WHERE time_column < ?",
             elementType, bindParameters);
 
     System.out.println(dates);
