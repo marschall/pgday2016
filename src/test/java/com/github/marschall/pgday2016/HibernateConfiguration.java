@@ -38,8 +38,6 @@ public class HibernateConfiguration {
     return bean;
   }
 
-
-
   @Bean
   public PlatformTransactionManager txManager(EntityManagerFactory entityManagerFactory) {
     JpaTransactionManager transactionManager = new JpaTransactionManager(entityManagerFactory);

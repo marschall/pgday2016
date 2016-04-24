@@ -1,15 +1,23 @@
 package com.github.marschall.pgday2016;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Entity(name = "demo_table")
+@Entity
+@Table(name = "demo_table")
 public class DemoTable {
+
+  @Id
+  @Column(name = "id")
+  private BigInteger id;
 
   @Column(name = "date_column")
   private LocalDate dateColumn;
