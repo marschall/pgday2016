@@ -9,6 +9,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 
+/**
+ * Shows how to use Java 8 Date Time types with Spring {@link JdbcOperations}.
+ */
 public class JdbcOperationsTest extends AbstractJdbcTest {
 
   @Autowired

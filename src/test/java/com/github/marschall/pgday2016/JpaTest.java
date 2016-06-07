@@ -15,6 +15,9 @@ import javax.persistence.criteria.Root;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 
+/**
+ * Shows how to use Java 8 Date Time types with JPA.
+ */
 @ContextConfiguration(classes = HibernateConfiguration.class)
 public class JpaTest extends AbstractPosgresTest {
 
@@ -27,8 +30,11 @@ public class JpaTest extends AbstractPosgresTest {
     assertNotNull(demoTable);
   }
 
+  /**
+   * Shows how to use Java 8 Date Time types with JPQL.
+   */
   @Test
-  public void query() {
+  public void jpqlQuery() {
     LocalTime time = LocalTime.of(12, 5);
 
     DemoTable demoTable = (DemoTable) em.createQuery(
@@ -38,17 +44,18 @@ public class JpaTest extends AbstractPosgresTest {
     assertNotNull(demoTable);
   }
 
-
-
+  /**
+   * Shows how to use Java 8 Date Time types with criteria API.
+   */
   @Test
-  public void criteria() {
+  public void criteriaApi() {
     LocalTime time = LocalTime.of(12, 5);
 
-    CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery<DemoTable> cq = cb.createQuery(DemoTable.class);
-    Root<DemoTable> demoTable = cq.from(DemoTable.class);
-    CriteriaQuery<DemoTable> beforeTwelfeFixe = cq.where(
-            cb.lessThan(demoTable.get(DemoTable_.timeColumn), time));
+    CriteriaBuilder builder = em.getCriteriaBuilder();
+    CriteriaQuery<DemoTable> query = builder.createQuery(DemoTable.class);
+    Root<DemoTable> root = query.from(DemoTable.class);
+    CriteriaQuery<DemoTable> beforeTwelfeFixe = query.where(
+            builder.lessThan(root.get(DemoTable_.timeColumn), time));
     List<DemoTable> resultList = em.createQuery(beforeTwelfeFixe).getResultList();
     assertNotNull(resultList);
   }
