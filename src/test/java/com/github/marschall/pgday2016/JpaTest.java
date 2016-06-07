@@ -54,9 +54,9 @@ public class JpaTest extends AbstractPosgresTest {
     CriteriaBuilder builder = em.getCriteriaBuilder();
     CriteriaQuery<DemoTable> query = builder.createQuery(DemoTable.class);
     Root<DemoTable> root = query.from(DemoTable.class);
-    CriteriaQuery<DemoTable> beforeTwelfeFixe = query.where(
+    CriteriaQuery<DemoTable> beforeTwelfeFive = query.where(
             builder.lessThan(root.get(DemoTable_.timeColumn), time));
-    List<DemoTable> resultList = em.createQuery(beforeTwelfeFixe).getResultList();
+    List<DemoTable> resultList = em.createQuery(beforeTwelfeFive).getResultList();
     assertNotNull(resultList);
   }
 
