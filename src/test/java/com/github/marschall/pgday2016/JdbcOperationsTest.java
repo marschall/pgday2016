@@ -17,14 +17,14 @@ public class JdbcOperationsTest extends AbstractJdbcTest {
   @Autowired
   private JdbcOperations jdbcOperations;
 
-
   @Test
   public void query() throws SQLException {
-    Class<LocalDate> elementType = LocalDate.class;
+    Class<LocalDate> returnType = LocalDate.class;
     Object[] bindParameters = new Object[]{LocalTime.of(12, 5)};
+
     List<LocalDate> dates = this.jdbcOperations.queryForList(
             "SELECT date_column FROM demo_table WHERE time_column < ?",
-            elementType, bindParameters);
+            returnType, bindParameters);
 
     System.out.println(dates);
   }

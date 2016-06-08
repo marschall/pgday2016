@@ -7,11 +7,11 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         
         <class>com.github.marschall.pgday2016.DemoTable</class>
-        
+
         <class>com.github.marschall.threeten.jpa.LocalTimeConverter</class>
         <class>com.github.marschall.threeten.jpa.LocalDateConverter</class>
         <class>com.github.marschall.threeten.jpa.LocalDateTimeConverter</class>
-        
+
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
         </properties>
