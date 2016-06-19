@@ -5,9 +5,9 @@ Begleitmaterial zur Präsentation von Swiss PGDay 2016.
 
 Von Interesse sind folgende Klassen:
 
- * com.github.marschall.pgday2016.JdbcTest
- * com.github.marschall.pgday2016.JdbcOperationsTest
- * com.github.marschall.pgday2016.JpaTest
+ * [com.github.marschall.pgday2016.JdbcTest](https://github.com/marschall/pgday2016/blob/master/src/test/java/com/github/marschall/pgday2016/JdbcTest.java)
+ * [com.github.marschall.pgday2016.JdbcOperationsTest](https://github.com/marschall/pgday2016/blob/master/src/test/java/com/github/marschall/pgday2016/JdbcOperationsTest.java)
+ * [com.github.marschall.pgday2016.JpaTest](https://github.com/marschall/pgday2016/blob/master/src/test/java/com/github/marschall/pgday2016/JpaTest.java)
 
 Datenbankverbindung
 -------------------
