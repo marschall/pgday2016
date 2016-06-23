@@ -27,7 +27,7 @@ public class JpaTest extends AbstractPosgresTest {
   @Test
   public void find() {
     DemoTable demoTable = em.find(DemoTable.class, BigInteger.ONE);
-    assertNotNull(demoTable);
+    assertNotNull(demoTable.getDateColumn());
   }
 
   /**
@@ -42,6 +42,7 @@ public class JpaTest extends AbstractPosgresTest {
             .setParameter("time", time)
             .getSingleResult();
     assertNotNull(demoTable);
+    assertNotNull(demoTable.getDateColumn());
   }
 
   /**

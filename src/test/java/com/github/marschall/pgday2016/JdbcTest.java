@@ -27,7 +27,8 @@ public class JdbcTest extends AbstractJdbcTest {
          PreparedStatement statement = connection.prepareStatement(
              "SELECT date_column FROM demo_table WHERE time_column < ?")) {
 
-      statement.setObject(1, LocalTime.of(12, 5));
+      LocalTime bindParameter = LocalTime.of(12, 5);
+      statement.setObject(1, bindParameter);
       try (ResultSet resultSet = statement.executeQuery()) {
         while (resultSet.next()) {
           LocalDate date = resultSet.getObject(1, LocalDate.class);
