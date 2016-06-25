@@ -4,7 +4,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.math.BigInteger;
 import java.time.LocalTime;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -57,8 +56,9 @@ public class JpaTest extends AbstractPosgresTest {
     Root<DemoTable> root = query.from(DemoTable.class);
     CriteriaQuery<DemoTable> beforeTwelfeFive = query.where(
             builder.lessThan(root.get(DemoTable_.timeColumn), time));
-    List<DemoTable> resultList = em.createQuery(beforeTwelfeFive).getResultList();
-    assertNotNull(resultList);
+    DemoTable demoTable = em.createQuery(beforeTwelfeFive).getSingleResult();
+    assertNotNull(demoTable);
+    assertNotNull(demoTable.getDateColumn());
   }
 
 }
